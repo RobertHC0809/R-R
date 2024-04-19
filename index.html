@@ -6,8 +6,7 @@
     <title>Electromécanica R&R</title>
     
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
+
 
     <!-- Favicon -->
     <link href="imagenes/icono.ico" rel="icon">
@@ -38,17 +37,19 @@
         </button>
         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
             <div class="navbar-nav ml-auto py-0">
-                <a href="#home" class="nav-item nav-link active">Home</a>
+                <a href="" class="nav-item nav-link active"></a>
                 <a href="#about" class="nav-item nav-link">Sobre Nosotros</a>
                 <a href="#service" class="nav-item nav-link">Servicios</a>
+                <a href="#project" class="nav-item nav-link">Proyectos</a>
+
             </div>
-            <a href="index.html" class="navbar-brand bg-primary px-4 mx-3 d-none d-lg-block">
+            <a href="#home" class="navbar-brand bg-primary px-4 mx-3 d-none d-lg-block">
                 <h1 class="display-4 text-white text-uppercase m-0">R&R</h1>
             </a>
             <div class="navbar-nav mr-auto py-0">
-                <a href="#project" class="nav-item nav-link">Proyectos</a>
                 <a href="#faqs" class="nav-item nav-link">Productos</a>
                 <a href="#contact" class="nav-item nav-link">Contáctanos</a>
+                <a href="login/index.html" class="nav-item nav-link">Iniciar sesión</a>
             </div>
         </div>
     </nav>
@@ -279,24 +280,25 @@
                         <form name="sentMessage" id="contactForm" novalidate="novalidate">
                             <div class="form-row">
                                 <div class="col-sm-6 control-group">
-                                    <input type="text" class="form-control bg-secondary border-0 py-4 px-3" id="name" placeholder="Tu nombre" required="required" data-validation-required-message="Please enter your name" />
+                                    <input type="text" class="form-control bg-secondary border-0 py-4 px-3" name= "name" id="name" placeholder="Tu nombre" required="required"/>
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="col-sm-6 control-group">
-                                    <input type="email" class="form-control bg-secondary border-0 py-4 px-3" id="email" placeholder="Tu Dirección Email" required="required" data-validation-required-message="Please enter your email" />
+                                    <input type="email" class="form-control bg-secondary border-0 py-4 px-3" name= "email" id="email" placeholder="Tu Dirección Email" required="required"/>
                                     <p class="help-block text-danger"></p>
                                 </div>
-                            </div>
+                            </div>     
                             <div class="control-group">
-                                <input type="text" class="form-control bg-secondary border-0 py-4 px-3" id="subject" placeholder="Razón a contactarnos" required="required" data-validation-required-message="Please enter a subject" />
+                                <input type="text" class="form-control bg-secondary border-0 py-4 px-3" name= "phone" id="phone" placeholder="Número de teléfono" required="required"/>
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
-                                <textarea class="form-control bg-secondary border-0 py-2 px-3" rows="6" id="message" placeholder="Mensaje" required="required" data-validation-required-message="Please enter your message"></textarea>
+                                <textarea class="form-control bg-secondary border-0 py-2 px-3" rows="6" name= "message" id="comment" placeholder="Mensaje" required="required" ></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="text-center">
-                                <button class="btn btn-primary font-weight-bold py-3 px-5" type="submit" id="sendMessageButton">Enviar Mensaje</button>
+                                <button class="btn btn-primary font-weight-bold py-3 px-5" type="button" onclick="enviarAndPhone('roberthernandezc08@gmail.com')"
+                                class="submit">Enviar mensaje</button></div>
                             </div>
                         </form>
                     </div>
@@ -374,32 +376,6 @@
     <!-- Footer End -->
 
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Solar Energy System</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <img class="img-fluid mb-4" src="img/carousel-1.jpg" alt="">
-                    <p>Sit eos diam rebum amet stet sit lorem invidunt, kasd dolor ea dolores ut nonumy, sea est rebum dolore dolor. Lorem tempor tempor gubergren dolor dolor dolor. Kasd amet labore voluptua justo diam, dolore accusam duo est stet nonumy tempor dolores sadipscing duo. Stet at et nonumy erat et sed.</p>
-                    <p>Sit eos diam rebum amet stet sit lorem invidunt, kasd dolor ea dolores ut nonumy, sea est rebum dolore dolor. Lorem tempor tempor gubergren dolor dolor dolor. Kasd amet labore voluptua justo diam, dolore accusam duo est stet nonumy tempor dolores sadipscing duo. Stet at et nonumy erat et sed.</p>
-                    <p>Sit eos diam rebum amet stet sit lorem invidunt, kasd dolor ea dolores ut nonumy, sea est rebum dolore dolor. Lorem tempor tempor gubergren dolor dolor dolor. Kasd amet labore voluptua justo diam, dolore accusam duo est stet nonumy tempor dolores sadipscing duo. Stet at et nonumy erat et sed.</p>
-                    <p>Sit eos diam rebum amet stet sit lorem invidunt, kasd dolor ea dolores ut nonumy, sea est rebum dolore dolor. Lorem tempor tempor gubergren dolor dolor dolor. Kasd amet labore voluptua justo diam, dolore accusam duo est stet nonumy tempor dolores sadipscing duo. Stet at et nonumy erat et sed.</p>
-                    <p>Sit eos diam rebum amet stet sit lorem invidunt, kasd dolor ea dolores ut nonumy, sea est rebum dolore dolor. Lorem tempor tempor gubergren dolor dolor dolor. Kasd amet labore voluptua justo diam, dolore accusam duo est stet nonumy tempor dolores sadipscing duo. Stet at et nonumy erat et sed.</p>
-                    <p>Sit eos diam rebum amet stet sit lorem invidunt, kasd dolor ea dolores ut nonumy, sea est rebum dolore dolor. Lorem tempor tempor gubergren dolor dolor dolor. Kasd amet labore voluptua justo diam, dolore accusam duo est stet nonumy tempor dolores sadipscing duo. Stet at et nonumy erat et sed.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Modal -->
-
-
     <!-- Scroll to Bottom -->
     <i class="fa fa-2x fa-angle-down text-white scroll-to-bottom"></i>
 
@@ -409,8 +385,8 @@
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-      <script src="http://oscmiapp.com/js/jsDialog/notify.js"></script>
-  <script src="http://oscmiapp.com/js/jsSentMenssage.js"></script>
+    <script src="http://oscmiapp.com/js/jsDialog/notify.js"></script>
+    <script src="http://oscmiapp.com/js/jsSentMenssage.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>

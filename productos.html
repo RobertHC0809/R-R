@@ -1,71 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de productos R&R</title>
-    <link rel="stylesheet" href="productos-css/bootstrap.min.css">
-    <link rel="stylesheet" href="fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="productos-css/templatemo-style.css">
-    <link rel="icon" type="image/png" href="imagenes/icono.ico">
-    <style>
-        .previous {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 1000;
-            width: 40px;
-            height: 40px;
-            border: none;
-            border-radius: 5px;
-            background-color: #005ca3;
-            color: white;
-            padding-left: 5px;
-            font-size: 25px; 
-            text-align: center; 
-        }
-        .arrow-text {
-            margin-left: 0px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos R&R</title>
+  <link rel="stylesheet" href="css/productos.css">
 </head>
 <body>
-    <button onclick="goBack()" class="previous">
-        &#8592; <!-- Flecha hacia la izquierda -->
-        <span class="arrow-text"></span>
-    </button>
+  <header>
+    <div class="logo">
+      <img src="imagenes/RYRPROD.png" alt="Website Logo">
+    </div>
+  </header>
 
-    <div class="container-fluid tm-container-content tm-mt-60">
-        <div class="row mb-4">
-            <div class="col-12 text-center">
-                <img src="img/RYRPROD.png" alt="Logo" class="img-fluid">
-            </div>
-        </div>
-        <div class="row mb-4">
-            <div class="col-6">
-                          
-            </div>
-            <div class="col-6 d-flex justify-content-end align-items-center">
-                <form action="" class="tm-text-primary">
-                    Página <input type="text" value="1" size="1" class="tm-input-paging tm-text-primary"> de 1
-                </form>
-            </div>
-        </div>
-        <div class="row tm-mb-90 tm-gallery">
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                <figure class="effect-ming tm-video-item">
-                    <img src="img/img-03.jpg" alt="Image" class="img-fluid">                
-                </figure>
-            </div>
-            <!-- Agrega aquí más bloques para cada imagen -->
-        </div>
+<a href="index.html#faqs" class="button">Volver a inicio</a>
+
+  <div class="container">
+    <div class="product">
+      <a href="">
+      <img src="imagenes/RYRPROD.png" alt="Producto 1" class="product-photo"></a>
+      <h2 class="product-name">Producto 1</h2>
+      <p class="product-price">$750</p>
     </div>
 
-    <!-- Script para volver atrás -->
-    <script>
-        function goBack() {
-            window.history.back();
-        }
-    </script>
+    <div class="product">
+      <a href="">
+        <img src="imagenes/RYRPROD.png" alt="Producto 2" class="product-photo"></a>
+      <h2 class="product-name">Producto 2</h2>
+      <p class="product-price">$500</p>
+    </div>    
+
+    <div class="product">
+      <a href="">
+        <img src="imagenes/RYRPROD.png" alt="Producto 3" class="product-photo"></a>
+        <h2 class="product-name">Producto 3</h2>
+        <p class="product-price">$990</p>
+      </div>
+
+      <div class="product">
+        <a href="">
+        <img src="imagenes/RYRPROD.png" alt="Producto 4" class="product-photo"></a>
+        <h2 class="product-name">Producto 4</h2>
+        <p class="product-price">$550</p>
+      </div>
+
+      <div class="product">
+        <a href="">
+        <img src="imagenes/RYRPROD.png" alt="Producto 5" class="product-photo"></a>
+        <h2 class="product-name">Producto 5</h2>
+        <p class="product-price">$1,100</p>
+      </div>
+    
+  </div>
 </body>
 </html>
