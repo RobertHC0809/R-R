@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="icon" href="imagenes/ryr.png" type="image">
+    <title>Iniciar sesión</title>
+</head>
+
+<a href="index.html" class="button">Volver a inicio</a>
+
+<body>
+    <div class="container">
+       
+        <!-- Inicio de sesión -->
+        <form id="login-form" class="form">
+            <img src="imagenes/ryr.png" alt="Logo" class="login-logo">
+            <h2>Iniciar sesión</h2>
+            <input type="text" placeholder="Usuario" required>
+            <input type="password" placeholder="Contraseña" required>
+            <button type="submit" class="btn">Iniciar sesión</button>
+            <p class="switch-text">¿No tienes una cuenta?</p>
+            <button onclick="showRegister()" class="switch-link">Regístrate aquí</button>
+        </form>
+        
+        <!-- Registrate -->
+        <form id="register-form" class="form hidden">
+            <img src="imagenes/ryr.png" alt="Logo" class="login-logo">
+            <h2>Registrarse</h2>
+            <input type="text" placeholder="Nombre de Usuario" required>
+            <input type="email" placeholder="Correo electrónico" required>
+            <input type="password" placeholder="Contraseña" required>
+            <button type="submit" class="btn">Registrarse</button>
+            <p class="switch-text">¿Ya tienes una cuenta?</p>
+            <button onclick="showLogin()" class="switch-link">Inicia sesión aquí</button>
+        </form>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
