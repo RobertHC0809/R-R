@@ -6,7 +6,7 @@ use App\Http\Controllers\Productos_Controller;
 use App\Http\Controllers\Proveedores_Controller;
 use App\Http\Controllers\Gestiondeinventarios_Controller;
 use App\Http\Controllers\Usuario_Controller;
-use App\Http\Controllers\Servicio_Controller;
+use App\Http\Controllers\Service_Controlador;
 use App\Http\Controllers\Reservas_Controller;
 use App\Http\Controllers\Pedido_Controller;
 use Illuminate\Support\Facades\Route;
@@ -14,6 +14,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\Carritodecompras_Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,10 +27,6 @@ use App\Http\Controllers\CheckoutController;
 |
 */
 
-Route::get('/', [ProductController::class, 'index'])->name('inicio');
-Route::get('/carrito', [CartController::class, 'index'])->name('carrito');
-Route::post('/checkout', [CheckoutController::class, 'processPayment'])->name('checkout');
-Route::get('/producto/{id}', [ProductController::class, 'addToCart'])->name('agregar_carrito');
 
 
 Route::get('/', function () {
@@ -43,6 +40,10 @@ Route::get("/administrador", function () {
 Route::get("/productos", function () {
     return view('Electromecanica/Home/productos'); 
 }) ->name("producto");
+
+Route::get("/carrito", function () {
+    return view('Electromecanica/Home/carrito'); 
+}) ->name("carrito");
 
 
 Route::get("/Inicio", function () {
@@ -124,12 +125,12 @@ Route::get('/administrador/usuario/registro', function () {return view('Electrom
 
 //SERVICIOS
 
-Route::get('/administrador/servicio/registro', [Servicio_Controller::class, 'index_servicio'])->name('inicio_servicio');
-Route::get('/sevicios/{id_servicio}', [Servicio_Controller::class, 'edit'])->name('edi_ser');
-Route::post('/administrador/servicios/registro', [Servicio_Controller::class, 'create'])->name('registrar_servicio');
-Route::delete('/formu/servicios/{id_servicio}', [Servicio_Controller::class , 'destroy'])->name('eliminar_servicio');
-Route::get('/formu/servicio/{id_servicio}', [Servicio_Controller::class , 'show'])->name('mostrar_servicio');
-Route::patch('/formu/servicio/{id_servicio}', [Servicio_Controller::class , 'update'])->name('editar_servicio');
+Route::get('/administrador/servicio/registro', [Service_Controlador::class, 'index_servicio'])->name('inicio_servicio');
+Route::get('/sevicios/{id_servicio}', [Service_Controlador::class, 'edit'])->name('edi_ser');
+Route::post('/administrador/servicios/registro', [Service_Controlador::class, 'create'])->name('registrar_servicio');
+Route::delete('/formu/servicios/{id_servicio}', [Service_Controlador::class , 'destroy'])->name('eliminar_servicio');
+Route::get('/formu/servicio/{id_servicio}', [Service_Controlador::class , 'show'])->name('mostrar_servicio');
+Route::patch('/formu/servicio/{id_servicio}', [Service_Controlador::class , 'update'])->name('editar_servicio');
 
 Route::post('/show/servicio', function () { return view(("Electromecanica/RYR_ADMIN/admin_servicios"));}) -> name("show_servicio");
 Route::get('/administrador/servicio', function () {return view(("Electromecanica/RYR_ADMIN/admin_servicios")) ;}) -> name('listarservicio');
@@ -160,6 +161,22 @@ Route::patch('/formu/pedido/{id_pedido}', [Pedido_Controller::class , 'update'])
 Route::post('/show/pedido', function () { return view(("Electromecanica/RYR_ADMIN/admin_pedido"));}) -> name("show_pedido");
 Route::get('/administrador/pedido', function () {return view(("Electromecanica/RYR_ADMIN/admin_pedido")) ;}) -> name('listarpedido');
 Route::get('/administrador/pedido/registro', function () {return view('Electromecanica/RYR_ADMIN/admin_pedido');}) -> name("registro_pedi");
+
+// MENSAJES
+
+Route::get('/administrador/mensaje/registro', [Service_Controlador::class, 'index_mensaje'])->name('index_mensaje');
+Route::post('/mensaje/registro', [Service_Controlador::class, 'registra_mensaje'])->name('valid_men');
+Route::delete('formu/mensaje/{id_mensaje}', [Service_Controlador::class , 'destroy_mensaje'])->name('eliminar_mensaje');
+Route::get('/formu/mensaje/{id_mensaje}', [Service_Controlador::class, 'show_mensaje'])->name('ver_mensaje');
+Route::patch('/formu/mensaje/{id_mensaje}', [Service_Controlador::class, 'update_mensaje'])->name('editar_mensaje');
+
+Route::get('/administrador/mensaje', function () {return view(("Electromecanica/RYR_ADMIN/view_mensaje"));}) -> name('listarmensaje');
+Route::post('/show/inspeccion', function () { return view(("Electromecanica/RYR_ADMIN/update_mensaje"));}) -> name("show_ac_mensaje");
+
+// CARRITO DE COMPRAS
+
+Route::get('/administrador/carrito/registro', [Carritodecompras_Controller::class, 'create'])->name('registrar_carrito');
+Route::delete('formu/carrito/{id_carrito}', [Carritodecompras_Controller::class , 'destroy_mensaje'])->name('eliminar_carrito');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

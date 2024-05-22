@@ -16,38 +16,24 @@ class respuesta extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
-    {
-        //
-    }
+    public $mensajeid;
 
     /**
-     * Get the message envelope.
+     * Create a new message instance.
      */
-    public function envelope(): Envelope
+    public function __construct($mensajeid)
     {
-        return new Envelope(
-            subject: 'Respuesta',
-        );
+        $this->mensajeid = $mensajeid;
     }
 
     /**
-     * Get the message content definition.
-     */
-    public function content(): Content
-    {
-        return new Content(
-            view: 'view.name',
-        );
-    }
-
-    /**
-     * Get the attachments for the message.
+     * Build the message.
      *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
+     * @return $this
      */
-    public function attachments(): array
+    public function build()
     {
-        return [];
+        return $this->subject('Respuesta de mensaje')
+                ->view('mails.respuesta', ['mensajeid' => $this->mensajeid]);
     }
 }

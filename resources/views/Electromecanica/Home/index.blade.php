@@ -54,9 +54,11 @@
                 @if (Route::has('login'))
       @auth
       <a href="{{ route('producto') }}" class="nav-item nav-link"> Pedidos</a>
-      <a href="#" class="nav-item nav-link">Carrito</a>
+
+      <a href="{{ route('carrito') }}" class="nav-item nav-link">Carrito</a>
       <form method="POST" action="{{ route('logout') }}">
         @csrf
+
       <a class="nav-item nav-link" href="{{route('logout')}}" onclick="event.preventDefault();
         this.closest('form').submit();">Cerrar sesión</a>
       </form>
@@ -328,6 +330,20 @@
         </div>
     </div>
     <!-- Contact End -->
+
+    <form action="{{ route('valid_men') }}" method="post">
+        @csrf
+        <h3>Envíanos un Mensaje</h3>
+        <label class="box" for="nombre">Nombre:</label>
+        <input type="text" name="nombre" required maxlength="50" placeholder="Ingresa tu nombre" class="box">
+        <label class="box" for="nombre">Correo electronico:</label>
+        <input type="email" name="email" required maxlength="50" placeholder="Ingresa tu email" class="box">
+        <label class="box" for="nombre">Telefono:</label>
+        <input type="number" name="telefono" required maxlength="10" min="0" max="9999999999" placeholder="Ingresa tu telefono" class="box">
+        <label class="box" for="nombre">Mensaje:</label>
+        <textarea name="mensaje" class="box" required maxlength="1000" placeholder="Ingresa tu mensaje" cols="30" rows="10"></textarea>
+        <input type="submit" value="Enviar mensaje" name="enviar" class="btn">
+      </form>
 
 
     <!-- Footer Start -->

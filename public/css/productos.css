@@ -1,15 +1,18 @@
 /* Estilos generales */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Open Sans', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
+  background-color: #f0f2f5;
+  color: #333;
 }
 
+/* Estilo del encabezado */
 header {
   text-align: center;
   padding: 20px 0;
-  background-color: #f4f4f4;
+  background-color: #4A90E2;
+  color: #fff;
 }
 
 .logo img {
@@ -26,29 +29,37 @@ header {
 
 /* Estilo de los productos */
 .product {
-  width: 15%; /* Establece el ancho de cada producto para que haya 5 productos por fila */
+  width: 18%; /* Establece el ancho de cada producto */
   text-align: center;
   background-color: #fff;
   padding: 20px;
   margin: 10px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
 .product-photo {
   width: 100%; /* Ajusta el tamaño de la foto al tamaño del producto */
   height: auto;
   margin-bottom: 20px;
+  border-radius: 8px;
 }
 
 .product-name {
-  font-size: 24px;
+  font-size: 22px;
   margin-bottom: 10px;
+  color: #333;
 }
 
 .product-price {
   font-size: 20px;
-  color: #007bff;
+  color: #E94E77;
 }
 
 /* Estilo del botón */
@@ -58,7 +69,7 @@ header {
     left: 20px;
     display: inline-block;
     padding: 10px 20px;
-    background-color: #0055b1;
+    background-color: #4A90E2;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -66,6 +77,11 @@ header {
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #357ABD;
 }
 
 /* Estilo para el contenedor del carrito */
@@ -73,9 +89,9 @@ header {
   margin-top: 20px;
   background-color: #fff;
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 100%; /* Ajusta automáticamente al ancho del contenedor */
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  width: 90%; /* Ajusta automáticamente al ancho del contenedor */
   max-width: 400px; /* Limita el ancho máximo para mantenerlo manejable */
   margin: 20px auto; /* Centra el carrito horizontalmente */
 }
@@ -83,8 +99,9 @@ header {
 /* Título del carrito */
 #cart h2 {
   margin-top: 0;
-  font-size: 18px; /* Tamaño de fuente más pequeño para dispositivos móviles */
+  font-size: 20px; /* Tamaño de fuente más pequeño para dispositivos móviles */
   margin-bottom: 10px;
+  color: #333;
 }
 
 /* Lista de ítems en el carrito */
@@ -101,11 +118,12 @@ header {
   padding: 10px 0;
   border-bottom: 1px solid #ccc;
   margin-bottom: 5px;
+  color: #555;
 }
 
 /* Estilo de los botones de eliminar */
 #cart-items .cart-item button {
-  background-color: red;
+  background-color: #E94E77;
   color: white;
   padding: 5px 10px;
   border: none;
@@ -115,26 +133,25 @@ header {
   font-size: 14px; /* Tamaño de fuente más pequeño */
 }
 
+/* Estilo de hover para los botones de eliminar */
+#cart-items .cart-item button:hover {
+  background-color: darkred;
+}
+
 /* Estilo para los botones de agregar al carrito */
 .add-to-cart-button {
-  background-color: #0056ad; /* Azul oscuro */
+  background-color: #4A90E2; /* Azul moderno */
   color: white;
   padding: 10px 20px;
   border: none;
   border-radius: 8px; /* Borde curvado */
   cursor: pointer;
-  transition: background-color 0.3s; /* Efecto de animación en hover */
+  transition: background-color 0.3s, transform 0.3s; /* Efecto de animación en hover */
 }
 
-/* Estilo de hover para los botones de agregar al carrito */
 .add-to-cart-button:hover {
-  background-color: #003d7b; /* Cambia el color en hover */
-}
-
-
-/* Estilo de hover para los botones de eliminar */
-#cart-items .cart-item button:hover {
-  background-color: darkred;
+  background-color: #357ABD; /* Cambia el color en hover */
+  transform: translateY(-5px);
 }
 
 /* Estilo para el total del precio */
@@ -142,6 +159,7 @@ header {
   font-size: 18px; /* Tamaño de fuente más pequeño */
   font-weight: bold;
   margin-top: 10px;
+  color: #333;
 }
 
 /* Media query para ajustes en dispositivos móviles */
@@ -151,10 +169,14 @@ header {
   }
   
   #cart h2 {
-    font-size: 16px; /* Reduce el tamaño de fuente */
+    font-size: 18px; /* Reduce el tamaño de fuente */
   }
   
   #total-price {
     font-size: 16px; /* Reduce el tamaño de fuente */
+  }
+  
+  .product {
+    width: 45%; /* Ajusta el ancho para dispositivos móviles */
   }
 }

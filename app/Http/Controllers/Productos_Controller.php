@@ -89,7 +89,14 @@ class Productos_Controller extends Controller
         }
     }
 
-
+    public function addToCart($id)
+    {
+        $productos = Product::findOrFail($id);
+        $cart = Session::get('cart', []);
+        $cart[] = $product;
+        Session::put('cart', $cart);
+        return redirect()->route('carrito')->with('success', 'Producto agregado al carrito');
+    }
 }
 
 

@@ -19,7 +19,7 @@ class Pedido_Controller extends Controller
     public function create(Request $request)
     {
         $request->validate([
-            'ID_Usuario' => 'required|string',
+            'id_users' => 'required|string',
             'producto' => 'required|string',
             'cantidad' => 'required|string',
             'fecha_pedido' => 'required|string',
@@ -45,16 +45,11 @@ class Pedido_Controller extends Controller
         }
     }
 
-    public function show($id_pedido)
-    {
-        $pedidos = pedido::find($id_pedido);
-        return view('Electromecanica/RYR_ADMIN/admin_update_pedido', ['pedidos' => $pedidos]);
-    }
 
     public function update(Request $request, $id_pedido) {
         // Validar el request
         $validatedData = $request->validate([
-            'ID_Usuario' => 'required',
+            'id_users' => 'required',
             'producto' => 'required',
             'cantidad' => 'required',
             'fecha_pedido' => 'required',
@@ -63,7 +58,7 @@ class Pedido_Controller extends Controller
 
         $pedidos = pedido::find($id_pedido);
         if ($pedidos) {
-            $pedidos->ID_Usuario = $validatedData['ID_Usuario'];
+            $pedidos->id_users = $validatedData['id_users'];
             $pedidos->producto = $validatedData['producto'];
             $pedidos->cantidad = $validatedData['cantidad'];
             $pedidos->fecha_pedido = $validatedData['fecha_pedido'];
@@ -79,7 +74,7 @@ class Pedido_Controller extends Controller
 
     public function show($id_pedido)
     {
-        $id = Auth::user()->ID_Usuario;
+        $id = Auth::user()->id_users;
         $pedidos = pedido::find($id_pedido);
         return view('Electromecanica/RYR_ADMIN/admin_update_pedido', ['pedidos' => $pedidos]);
     }
