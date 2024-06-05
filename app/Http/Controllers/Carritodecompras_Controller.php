@@ -24,14 +24,15 @@ class Carritodecompras_Controller extends Controller
         $carrito = new carritodecompras($request->all());
         $id  = Auth::user()->ID_Usuario;
         $carrito-> ID_Usuario = $id;
+        $carrito-> estado_carrito = 'Procesado';
         $carrito->save();
 
         return redirect("/administrador/carrito/registro")->with('success', 'Producto registrado correctamente');
     }
 
-    public function destroy($id_)
+    public function destroy($ID_Carrito)
     {
-        $carrito = carritodecompras::find($id_carrito);
+        $carrito = carritodecompras::find($ID_Carrito);
 
         if ($carrito) {
             $carrito->delete();

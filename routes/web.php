@@ -15,6 +15,10 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\Carritodecompras_Controller;
+use App\Http\Controllers\Factura_Controller;
+use App\Http\Controllers\PedidoController;
+use App\Http\Controllers\Servicio_Controller;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,6 +61,15 @@ Route::get("/formu", function () {
 Route::get('/dashboard', function () {
     return view('Electromecanica/RYR_ADMIN/admin_page');
 })->middleware(['auth', 'verified','admin'])->name('dashboard');
+
+// PAYPAL
+
+ Route::get('/pago', function () {
+     return view('Electromecanica/factura_reg');
+    })->name('pago');
+    Route::post('/paypal/pay', [PaymentController::class, 'payWithPayPal'])->name('payment.payWithPayPal');
+    Route::get('/paypal/status', 'PaymentController@payPalStatus');
+
 
 //EMPLEADO
 
@@ -125,12 +138,12 @@ Route::get('/administrador/usuario/registro', function () {return view('Electrom
 
 //SERVICIOS
 
-Route::get('/administrador/servicio/registro', [Service_Controlador::class, 'index_servicio'])->name('inicio_servicio');
-Route::get('/sevicios/{id_servicio}', [Service_Controlador::class, 'edit'])->name('edi_ser');
-Route::post('/administrador/servicios/registro', [Service_Controlador::class, 'create'])->name('registrar_servicio');
-Route::delete('/formu/servicios/{id_servicio}', [Service_Controlador::class , 'destroy'])->name('eliminar_servicio');
-Route::get('/formu/servicio/{id_servicio}', [Service_Controlador::class , 'show'])->name('mostrar_servicio');
-Route::patch('/formu/servicio/{id_servicio}', [Service_Controlador::class , 'update'])->name('editar_servicio');
+Route::get('/administrador/servicio/registro', [Servicio_Controller::class, 'index_servicio'])->name('inicio_servicio');
+Route::get('/sevicios/{id_servicio}', [Servicio_Controller::class, 'edit'])->name('edi_ser');
+Route::post('/administrador/servicios/registro', [Servicio_Controller::class, 'create'])->name('registrar_servicio');
+Route::delete('/formu/servicios/{id_servicio}', [Servicio_Controller::class , 'destroy'])->name('eliminar_servicio');
+Route::get('/formu/servicio/{id_servicio}', [Servicio_Controller::class , 'show'])->name('mostrar_servicio');
+Route::patch('/formu/servicio/{id_servicio}', [Servicio_Controller::class , 'update'])->name('editar_servicio');
 
 Route::post('/show/servicio', function () { return view(("Electromecanica/RYR_ADMIN/admin_servicios"));}) -> name("show_servicio");
 Route::get('/administrador/servicio', function () {return view(("Electromecanica/RYR_ADMIN/admin_servicios")) ;}) -> name('listarservicio');
@@ -148,6 +161,8 @@ Route::patch('/formu/reserva/{id_reserva}', [Reservas_Controller::class , 'updat
 Route::post('/show/reserva', function () { return view(("Electromecanica/RYR_ADMIN/admin_reserva"));}) -> name("show_reserva");
 Route::get('/administrador/reserva', function () {return view(("Electromecanica/RYR_ADMIN/admin_reserva")) ;}) -> name('listarreserva');
 Route::get('/administrador/reserva/registro', function () {return view('Electromecanica/RYR_ADMIN/admin_reserva');}) -> name("registro_reser");
+
+Route::get('/pedidos', [PedidoController::class, 'index'])->name('pedidos');
 
 //PEDIDOS
 
@@ -176,7 +191,23 @@ Route::post('/show/inspeccion', function () { return view(("Electromecanica/RYR_
 // CARRITO DE COMPRAS
 
 Route::get('/administrador/carrito/registro', [Carritodecompras_Controller::class, 'create'])->name('registrar_carrito');
-Route::delete('formu/carrito/{id_carrito}', [Carritodecompras_Controller::class , 'destroy_mensaje'])->name('eliminar_carrito');
+Route::get('formu/carrito/{id_carrito}', [Carritodecompras_Controller::class , 'pagar'])->name('trans_cart');
+Route::delete('formu/carrito/{id_carrito}', [Carritodecompras_Controller::class , 'destroy'])->name('borrar_cart');
+
+//Enviar Factura
+
+Route::get('/administrador/factura/registro', [Factura_Controller::class, 'index_factura'])->name('inicio_factura');
+Route::get('/facturas/{id_factura}', [Factura_Controller::class, 'edit'])->name('edi_factu');
+Route::post('/administrador/factura/registro', [Factura_Controller::class, 'create'])->name('registrar_factura');
+Route::delete('/formu/factura/{id_factura}', [Factura_Controller::class , 'destroy'])->name('eliminar_factura');
+Route::get('/formu/factura/{id_factura}', [Factura_Controller::class , 'show'])->name('mostrar_factura');
+Route::patch('/formu/factura/{id_factura}', [Factura_Controller::class , 'update'])->name('editar_factura');
+
+Route::get('/administrador/factura', function () {return view(("Electromecanica/Home/factura_reg"));}) -> name('reg_factura');
+
+// Ver Factura
+
+Route::get('/administrador/facturas', function () {return view(("Electromecanica/RYR_ADMIN/admin_factura"));}) -> name('listarfacturas');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

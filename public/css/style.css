@@ -9651,3 +9651,54 @@ h4, h5, h6 {
   padding: 0;
   list-style-type: none;
 }
+
+header {
+  display: flex;
+  height: 4rem; /* 16 * 0.25rem */
+  width: 100%;
+  flex-shrink: 0;
+  align-items: center;
+  padding-left: 1rem; /* 4 * 0.25rem */
+  padding-right: 1rem; /* 4 * 0.25rem */
+  border-bottom: 1px solid #e0e0e0; /* Assuming a light gray color for the border */
+}
+
+header div {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* 3 * 0.25rem */
+  margin-left: auto;
+}
+
+header div span {
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 50%;
+  height: 2.25rem; /* 9 * 0.25rem */
+  width: 2.25rem; /* 9 * 0.25rem */
+  cursor: pointer;
+}
+
+header div span img {
+  width: 100%;
+  height: auto;
+}
+
+header div span span {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #f5f5f5; /* Assuming a muted background color */
+}
+
+
+
+
+
+
+

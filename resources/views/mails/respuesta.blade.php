@@ -24,13 +24,13 @@
             
             @foreach ($mensaje as $msg)
             <p>Estimado(a) {{$msg->nombre}},</p>
-          <p>Hemos recibido y procesado su mensaje a nuestra pagina
-            <p> El cual se envio a con este Correo electrónico del usuario: {{$msg->email}}</p>
-            <p>Mensaje enviado: {{$msg->mensaje}}</p>
+          <p>Hemos recibido y procesado su mensaje a nuestro sitio web
+            <p>El cual se envió con el siguiente correo electrónico: {{$msg->email}}</p>
+            <p>Su mensaje: {{$msg->mensaje}}</p>
            
 
             @if ($msg->respuesta)
-            <p>Respuesta del administrador:</p>
+            <p>Esta a sido nuestra respuesta a su mensaje:</p>
             <p>{{$msg->respuesta}}</p>
             @else
             <p>Aún no hay respuesta para este mensaje.</p>
@@ -41,7 +41,7 @@
       <tr>
         <td style="text-align: center; padding: 10px; font-size: 12px; color: #666;">
           <p>Electromecanica RYR</p>
-          <p>(+01) 809 575-0550 | facebook.com/electromecanicaryr | info@electromecanicaryr.com</p>
+          <p>(+1)809 575-0550 | facebook.com/electromecanicaryr | info@electromecanicaryr.com</p>
         </td>
       </tr>
     </table>
